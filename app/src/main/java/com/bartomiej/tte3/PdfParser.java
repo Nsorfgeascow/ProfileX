@@ -68,20 +68,10 @@ public class PdfParser {
 
         String[] splitedData = data.split("\\s+");
 
-        for(int i = 0; i < splitedData.length; i++) {
-            switch (i%4){
-                case 1:
-                    dx.put(splitedData[i/4], Double.parseDouble(splitedData[i]));
-                    break;
-                case 2:
-                    a.put(splitedData[i/4], Double.parseDouble(splitedData[i]));
-                    break;
-                case 3:
-                    ix.put(splitedData[i/4], Double.parseDouble(splitedData[i]));
-                    break;
-                default:
-                    break;
-            }
+        for(int i = 0; i < splitedData.length; i += 4) {
+            dx.put(splitedData[i], Double.parseDouble(splitedData[i+1]));
+            a.put(splitedData[i], Double.parseDouble(splitedData[i+2])*100);
+            ix.put(splitedData[i], Double.parseDouble(splitedData[i+3])*10000);
         }
     }
 }

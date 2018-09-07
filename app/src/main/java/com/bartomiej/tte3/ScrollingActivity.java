@@ -13,6 +13,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PdfParser.fillDictionaries();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -23,15 +25,13 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+            Calculator.calculate(ScrollingActivity.this);
 
-
-
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "Calculating...", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
 
-    PdfParser.fillDictionaries();
 
     }
 
