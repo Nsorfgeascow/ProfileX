@@ -3,7 +3,7 @@ package com.bartomiej.tte3;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PdfParser {
+public class DataParser {
 
     static Map<String, Double> dx = new HashMap<>();
     static Map<String, Double> a = new HashMap<>();

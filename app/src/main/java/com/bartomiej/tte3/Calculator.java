@@ -52,6 +52,27 @@ public class Calculator {
 
     }
 
+    private static int setDataUnits(String a) {
+        int tmp = 0;
+        switch (a) {
+            case "mm":
+                tmp= 1;
+                break;
+            case "cm":
+                tmp = 10;
+                break;
+            case "dm":
+                tmp = 100;
+                break;
+            case "m":
+                tmp = 1000;
+                break;
+        }
+
+        return tmp;
+    }
+
+
     public static void calculate(Activity activity) {
         Spinner data = (Spinner) activity.findViewById(R.id.s_data);
         Spinner results = (Spinner) activity.findViewById(R.id.s_results);
@@ -80,7 +101,10 @@ public class Calculator {
 
         checkDataUnits(dataUnitFactor);
 
-        switch (data.getSelectedItem().toString()) {
+        dataUnitFactor = setDataUnits(data.getSelectedItem().toString());
+        resultsUnitFactor = setDataUnits(results.getSelectedItem().toString());
+
+        /*switch (data.getSelectedItem().toString()) {
             case "mm":
                 dataUnitFactor = 1;
                 break;
@@ -108,7 +132,7 @@ public class Calculator {
             case "m":
                 resultsUnitFactor = 1000;
                 break;
-        }
+        }*/
 
         if(cienkoscienny.isChecked() && plaskownik.isChecked()) {
             da = pws*pwg+ss*sg+ms*mg;
@@ -146,21 +170,25 @@ public class Calculator {
             w.setText(round(dw, 2).toString());
 
         } else if(cienkoscienny.isChecked() && !plaskownik.isChecked()) {
-            //!!!!!!!!!
+
+            /*******************
+             * NOT IMPLEMENTED YET
+             *******************/
+
         } else if(!cienkoscienny.isChecked() && !plaskownik.isChecked()) {
-            double au = PdfParser.a.get(mark) == null ? 0 : PdfParser.a.get(mark);
+            double au = DataParser.a.get(mark) == null ? 0 : DataParser.a.get(mark);
             da = pws*pwg+au;
             a.setText(round(da, 2).toString());
 
             dat = 0.8*ss*sg;
             at.setText(round(dat, 2).toString());
 
-            double dx = PdfParser.dx.get(mark) == null ? 0 : PdfParser.dx.get(mark);
+            double dx = DataParser.dx.get(mark) == null ? 0 : DataParser.dx.get(mark);
             dsy = au*dx-pws*pwg*pwg/2;
             de = da == 0 ? 0 : dsy/da;;
             e.setText(round((de+pwg),2).toString());
 
-            double ix = PdfParser.ix.get(mark) == null ? 0 : PdfParser.ix.get(mark);
+            double ix = DataParser.ix.get(mark) == null ? 0 : DataParser.ix.get(mark);
             diy = pws*pwg*pwg*pwg/3+ix+au*dx*dx-da*de*de;
             BigDecimal bd = new BigDecimal(diy);
             iy.setText(bd.setScale(2, RoundingMode.HALF_UP).toString());

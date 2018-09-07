@@ -33,14 +33,16 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/data" />
+                        android:text="@string/data"
+                        android:textColor="@color/textColor" />
 
                     <TextView
                         android:id="@+id/results"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/results" />
+                        android:text="@string/results"
+                        android:textColor="@color/textColor" />
                 </LinearLayout>
             </TableRow>
 
@@ -84,6 +86,7 @@
 
                     <Switch
                         android:id="@+id/cienkoscienny"
+                        android:textColor="@color/textColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
@@ -92,6 +95,7 @@
 
                     <Switch
                         android:id="@+id/plaskownik"
+                        android:textColor="@color/textColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
@@ -117,42 +121,54 @@
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/beltWidth" />
+                        android:text="@string/beltWidth"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/thickness4"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/thickness" />
+                        android:text="@string/thickness"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/width"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/webHeight" />
+                        android:text="@string/webHeight"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/thickness"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/thickness" />
+                        android:text="@string/thickness"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/width3"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/stringerAngleWidth" />
+                        android:text="@string/stringerAngleWidth"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/thickness3"
                         android:layout_width="match_parent"
                         android:layout_height="46dp"
                         android:gravity="end"
-                        android:text="@string/thickness" />
+                        android:text="@string/thickness"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -227,6 +243,7 @@
                         android:gravity="end"
                         android:singleLine="false"
                         android:text="@string/crosSection"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -237,6 +254,7 @@
                         android:gravity="end"
                         android:singleLine="false"
                         android:text="@string/crosSectionWeb"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -247,6 +265,7 @@
                         android:gravity="end"
                         android:singleLine="false"
                         android:text="@string/axisE"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -256,6 +275,7 @@
                         android:layout_marginTop="5dp"
                         android:gravity="end"
                         android:text="@string/bendingMoment"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <!--
@@ -290,6 +310,7 @@
                         android:gravity="end"
                         android:singleLine="false"
                         android:text="@string/forBelt"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <!--
@@ -319,6 +340,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -328,6 +350,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -337,6 +360,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <TextView
@@ -346,7 +370,8 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
-                        android:textSize="16sp" />
+                        android:textSize="16sp"
+                        android:textColor="@color/textColor" />
 
                     <!--
                     <TextView
@@ -379,6 +404,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="5dp"
+                        android:textColor="@color/textColor"
                         android:textSize="16sp" />
 
                     <!--
