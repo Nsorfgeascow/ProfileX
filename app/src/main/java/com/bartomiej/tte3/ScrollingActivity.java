@@ -8,6 +8,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -25,14 +27,16 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            Calculator.calculate(ScrollingActivity.this);
+                Calculator.calculate(ScrollingActivity.this);
 
-                Snackbar.make(view, "Calculating...", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Switch thinwalled = (Switch) findViewById(R.id.cienkoscienny);
+                Switch flatBar = (Switch) findViewById(R.id.plaskownik);
+                if(thinwalled.isChecked() && !flatBar.isChecked()) {
+                    Snackbar.make(view, "Sorry... not implemented yet", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
             }
         });
-
-
     }
 
     @Override

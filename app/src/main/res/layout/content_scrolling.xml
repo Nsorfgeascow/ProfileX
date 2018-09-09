@@ -34,7 +34,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/data"
-                        android:textColor="@color/textColor" />
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:id="@+id/results"
@@ -42,7 +43,8 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="@string/results"
-                        android:textColor="@color/textColor" />
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
                 </LinearLayout>
             </TableRow>
 
@@ -86,21 +88,23 @@
 
                     <Switch
                         android:id="@+id/cienkoscienny"
-                        android:textColor="@color/textColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
-                        android:text="@string/thinwalled" />
+                        android:text="@string/thinwalled"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
 
                     <Switch
                         android:id="@+id/plaskownik"
-                        android:textColor="@color/textColor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:layout_weight="1"
-                        android:text="@string/flatBar" />
+                        android:text="@string/flatBar"
+                        android:textColor="@color/textColor"
+                        android:textSize="16sp" />
                 </LinearLayout>
 
             </TableRow>

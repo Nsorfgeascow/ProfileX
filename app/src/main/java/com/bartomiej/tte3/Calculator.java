@@ -1,10 +1,15 @@
 package com.bartomiej.tte3;
 
 import android.app.Activity;
+import android.content.Context;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
@@ -48,12 +53,8 @@ public class Calculator {
         w.setText(round(tmp,2).toString());
     }
 
-    private static void checkDataUnits(int unitFactor) {
-
-    }
-
     private static int setDataUnits(String a) {
-        int tmp = 0;
+        int tmp = 1;
         switch (a) {
             case "mm":
                 tmp= 1;
@@ -90,7 +91,6 @@ public class Calculator {
         TextView iy = (TextView) activity.findViewById(R.id.iy);
         TextView w = (TextView) activity.findViewById(R.id.w);
         Double da, dat, de, dsy, diy, dw;
-        String mark = srod_szer.getText().toString()+"x"+srod_gr.getText().toString();
 
         Double pws = pas_wsp_szer.getText().toString().matches("") ? 0 : Double.parseDouble(pas_wsp_szer.getText().toString());
         Double pwg = pas_wsp_gr.getText().toString().matches("") ? 0 : Double.parseDouble(pas_wsp_gr.getText().toString());
@@ -99,40 +99,15 @@ public class Calculator {
         Double ms = moc_szer.getText().toString().matches("") ? 0 : Double.parseDouble(moc_szer.getText().toString());
         Double mg = moc_gr.getText().toString().matches("") ? 0 : Double.parseDouble(moc_gr.getText().toString());
 
-        checkDataUnits(dataUnitFactor);
-
         dataUnitFactor = setDataUnits(data.getSelectedItem().toString());
         resultsUnitFactor = setDataUnits(results.getSelectedItem().toString());
 
-        /*switch (data.getSelectedItem().toString()) {
-            case "mm":
-                dataUnitFactor = 1;
-                break;
-            case "cm":
-                dataUnitFactor = 10;
-                break;
-            case "dm":
-                dataUnitFactor = 100;
-                break;
-            case "m":
-                dataUnitFactor = 1000;
-                break;
-        }
 
-        switch (results.getSelectedItem().toString()) {
-            case "mm":
-                resultsUnitFactor = 1;
-                break;
-            case "cm":
-                resultsUnitFactor = 10;
-                break;
-            case "dm":
-                resultsUnitFactor = 100;
-                break;
-            case "m":
-                resultsUnitFactor = 1000;
-                break;
-        }*/
+        String tmp = Double.toString(ss*dataUnitFactor);
+        String tmp2 = Double.toString(sg*dataUnitFactor);
+
+        String mark = tmp.substring(0,tmp.length()-2)+"x"+tmp2.substring(0,tmp2.length()-2);
+
 
         if(cienkoscienny.isChecked() && plaskownik.isChecked()) {
             da = pws*pwg+ss*sg+ms*mg;
@@ -174,21 +149,23 @@ public class Calculator {
             /*******************
              * NOT IMPLEMENTED YET
              *******************/
+            return;
+
 
         } else if(!cienkoscienny.isChecked() && !plaskownik.isChecked()) {
-            double au = DataParser.a.get(mark) == null ? 0 : DataParser.a.get(mark);
+            double au = DataParser.a.get(mark) == null ? 0 : (DataParser.a.get(mark)/(dataUnitFactor*dataUnitFactor));
             da = pws*pwg+au;
             a.setText(round(da, 2).toString());
 
             dat = 0.8*ss*sg;
             at.setText(round(dat, 2).toString());
 
-            double dx = DataParser.dx.get(mark) == null ? 0 : DataParser.dx.get(mark);
+            double dx = DataParser.dx.get(mark) == null ? 0 : (DataParser.dx.get(mark)/(dataUnitFactor));
             dsy = au*dx-pws*pwg*pwg/2;
-            de = da == 0 ? 0 : dsy/da;;
+            de = da == 0 ? 0 : dsy/da;
             e.setText(round((de+pwg),2).toString());
 
-            double ix = DataParser.ix.get(mark) == null ? 0 : DataParser.ix.get(mark);
+            double ix = DataParser.ix.get(mark) == null ? 0 : (DataParser.ix.get(mark)/(dataUnitFactor*dataUnitFactor*dataUnitFactor*dataUnitFactor));
             diy = pws*pwg*pwg*pwg/3+ix+au*dx*dx-da*de*de;
             BigDecimal bd = new BigDecimal(diy);
             iy.setText(bd.setScale(2, RoundingMode.HALF_UP).toString());
@@ -197,8 +174,8 @@ public class Calculator {
             w.setText(round(dw, 2).toString());
         }
 
-        Double tmp = (double) Calculator.dataUnitFactor / (double) Calculator.resultsUnitFactor;
-        Calculator.updateUnits(activity, tmp);
+        Double updateFactor = (double) Calculator.dataUnitFactor / (double) Calculator.resultsUnitFactor;
+        Calculator.updateUnits(activity, updateFactor);
 
     }
 }
